@@ -28,6 +28,8 @@ function addTask() {
         li.innerHTML += `
             <span>${taskText}</span>
             <button onclick="removeTask(this)">X</button>
+            <button class="btn btn-success btn-sm" onclick="markAsPaid(this)">Mark as Done</button>
+
         `;
 
         // Append the new item to the task list
@@ -48,7 +50,12 @@ function removeTask(button) {
     
 }
 
-
+function markAsPaid(button) {
+    var li = button.parentElement;
+    li.style.backgroundColor = '#CCD1D1';
+    button.innerText= 'Done'; // Use a different color to mark as paid
+    button.disabled = true; // Disable the "Mark as Paid" button
+  }
 
 
 // Function to save the task list to localStorage
